@@ -1,39 +1,39 @@
-import localforage from "localforage";
-import { useEffect, useState } from "react";
+import localforage from 'localforage';
+import { useEffect, useState } from 'react';
 
-import GlobalStyles from "@mui/material/GlobalStyles";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { indigo, pink } from "@mui/material/colors";
+import GlobalStyles from '@mui/material/GlobalStyles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { indigo, pink } from '@mui/material/colors';
 
-import { QR } from "./QR";
-import { ToolBar } from "./ToolBar";
-import { SideBar } from "./SideBar";
-import { TodoItem } from "./TodoItem";
-import { FormDialog } from "./FormDialog";
-import { AlertDialog } from "./AlertDialog";
-import { ActionButton } from "./ActionButton";
+import { QR } from './QR';
+import { ToolBar } from './ToolBar';
+import { SideBar } from './SideBar';
+import { TodoItem } from './TodoItem';
+import { FormDialog } from './FormDialog';
+import { AlertDialog } from './AlertDialog';
+import { ActionButton } from './ActionButton';
 
-import { isTodos } from "./lib/isTodos";
+import { isTodos } from './lib/isTodos';
 
 const theme = createTheme({
   palette: {
     primary: {
       main: indigo[500],
-      light: "#757de8",
-      dark: "#002984",
+      light: '#757de8',
+      dark: '#002984',
     },
     secondary: {
       main: pink[500],
-      light: "#ff6090",
-      dark: "#b0003a",
+      light: '#ff6090',
+      dark: '#b0003a',
     },
   },
 });
 
 export const App = () => {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const [todos, setTodos] = useState<Todo[]>([]);
-  const [filter, setFilter] = useState<Filter>("all");
+  const [filter, setFilter] = useState<Filter>('all');
 
   const [qrOpen, setQrOpen] = useState(false);
   const [alertOpen, setAlertOpen] = useState(false);
@@ -46,7 +46,7 @@ export const App = () => {
 
   const onToggleDialog = () => {
     setDialogOpen(!dialogOpen);
-    setText("");
+    setText('');
   };
 
   const handleOnSort = (filter: Filter) => {
@@ -73,7 +73,7 @@ export const App = () => {
     };
 
     setTodos([newTodo, ...todos]);
-    setText("");
+    setText('');
     setDialogOpen(false);
   };
 
@@ -101,12 +101,12 @@ export const App = () => {
 
   useEffect(() => {
     localforage
-      .getItem("todo-20200101")
+      .getItem('todo-20200101')
       .then((values) => isTodos(values) && setTodos(values));
   }, []);
 
   useEffect(() => {
-    localforage.setItem("todo-20200101", todos);
+    localforage.setItem('todo-20200101', todos);
   }, [todos]);
 
   return (

@@ -1,7 +1,7 @@
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import TextField from "@mui/material/TextField";
-import DialogActions from "@mui/material/DialogActions";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import TextField from '@mui/material/TextField';
+import DialogActions from '@mui/material/DialogActions';
 
 type Props = {
   text: string;
@@ -22,14 +22,14 @@ export const FormDialog = (props: Props) => {
           props.onSubmit();
         }}
       >
-        <div style={{ margin: "1em" }}>
+        <div style={{ margin: '1em' }}>
           <TextField
             variant="standard"
             style={{
-              width: "100%",
-              fontSize: "16px",
+              width: '100%',
+              fontSize: '16px',
               fontFamily:
-                "-apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+                '-apple-system, BlinkMacSystemFont, Roboto, sans-serif',
             }}
             label="タスクを入力..."
             onChange={(e) => props.onChange(e)}

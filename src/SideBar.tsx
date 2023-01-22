@@ -1,17 +1,17 @@
-import Icon from "@mui/material/Icon";
-import List from "@mui/material/List";
-import Avatar from "@mui/material/Avatar";
-import Drawer from "@mui/material/Drawer";
-import Divider from "@mui/material/Divider";
-import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import ListItemButton from "@mui/material/ListItemButton";
+import Icon from '@mui/material/Icon';
+import List from '@mui/material/List';
+import Avatar from '@mui/material/Avatar';
+import Drawer from '@mui/material/Drawer';
+import Divider from '@mui/material/Divider';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 
-import { styled } from "@mui/material/styles";
-import { indigo, lightBlue, pink } from "@mui/material/colors";
+import { styled } from '@mui/material/styles';
+import { indigo, lightBlue, pink } from '@mui/material/colors';
 
-import pjson from "../package.json";
+import pjson from '../package.json';
 
 type Props = {
   drawerOpen: boolean;
@@ -21,20 +21,20 @@ type Props = {
 };
 
 // 使い方の例
-const DrawerList = styled("div")(() => ({
+const DrawerList = styled('div')(() => ({
   width: 250,
 }));
 
-const DrawerHeader = styled("div")(() => ({
+const DrawerHeader = styled('div')(() => ({
   height: 150,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  padding: "1em",
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '1em',
   backgroundColor: indigo[500],
-  color: "#ffffff",
-  fontFamily: "-apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+  color: '#ffffff',
+  fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, sans-serif',
 }));
 
 const DrawerAvatar = styled(Avatar)(({ theme }) => ({
@@ -59,7 +59,7 @@ export const SideBar = (props: Props) => {
         </DrawerHeader>
         <List>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => props.onSort("all")}>
+            <ListItemButton onClick={() => props.onSort('all')}>
               <ListItemIcon>
                 <Icon>subject</Icon>
               </ListItemIcon>
@@ -67,7 +67,7 @@ export const SideBar = (props: Props) => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => props.onSort("unchecked")}>
+            <ListItemButton onClick={() => props.onSort('unchecked')}>
               <ListItemIcon>
                 <Icon sx={{ color: lightBlue[500] }}>
                   radio_button_unchecked
@@ -77,7 +77,7 @@ export const SideBar = (props: Props) => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => props.onSort("checked")}>
+            <ListItemButton onClick={() => props.onSort('checked')}>
               <ListItemIcon>
                 <Icon sx={{ color: pink.A200 }}>check_circle_outline</Icon>
               </ListItemIcon>
@@ -85,7 +85,7 @@ export const SideBar = (props: Props) => {
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>
-            <ListItemButton onClick={() => props.onSort("removed")}>
+            <ListItemButton onClick={() => props.onSort('removed')}>
               <ListItemIcon>
                 <Icon>delete</Icon>
               </ListItemIcon>

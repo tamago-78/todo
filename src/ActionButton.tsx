@@ -1,7 +1,7 @@
-import Fab from "@mui/material/Fab";
-import Icon from "@mui/material/Icon";
+import Fab from '@mui/material/Fab';
+import Icon from '@mui/material/Icon';
 
-import { styled } from "@mui/material/styles";
+import { styled } from '@mui/material/styles';
 
 type Props = {
   todos: Todo[];
@@ -13,7 +13,7 @@ type Props = {
 };
 
 const FabButton = styled(Fab)({
-  position: "fixed",
+  position: 'fixed',
   right: 15,
   bottom: 15,
 });
@@ -23,7 +23,7 @@ export const ActionButton = (props: Props) => {
 
   return (
     <>
-      {props.filter === "removed" ? (
+      {props.filter === 'removed' ? (
         <FabButton
           color="secondary"
           onClick={props.onToggleAlert}
@@ -35,7 +35,7 @@ export const ActionButton = (props: Props) => {
         <FabButton
           color="secondary"
           onClick={props.onToggleDialog}
-          disabled={props.filter === "checked" || props.dialogOpen}
+          disabled={props.filter === 'checked' || props.dialogOpen}
         >
           <Icon>create</Icon>
         </FabButton>

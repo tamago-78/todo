@@ -1,10 +1,10 @@
-import Icon from "@mui/material/Icon";
-import Card from "@mui/material/Card";
-import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
+import Icon from '@mui/material/Icon';
+import Card from '@mui/material/Card';
+import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
 
-import { styled } from "@mui/material/styles";
-import { lightBlue, pink, grey } from "@mui/material/colors";
+import { styled } from '@mui/material/styles';
+import { lightBlue, pink, grey } from '@mui/material/colors';
 
 type Props = {
   todos: Todo[];
@@ -16,10 +16,10 @@ type Props = {
   ) => void;
 };
 
-const Container = styled("div")({
-  margin: "0 auto",
-  maxWidth: "640px",
-  fontFamily: "-apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+const Container = styled('div')({
+  margin: '0 auto',
+  maxWidth: '640px',
+  fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, sans-serif',
 });
 
 const TodoCard = styled(Card)(({ theme }) => ({
@@ -27,51 +27,51 @@ const TodoCard = styled(Card)(({ theme }) => ({
   marginLeft: theme.spacing(2),
   marginRight: theme.spacing(2),
   padding: theme.spacing(1),
-  fontFamily: "-apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+  fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, sans-serif',
 }));
 
-const Form = styled("div")(({ theme }) => ({
+const Form = styled('div')(({ theme }) => ({
   marginTop: theme.spacing(1),
   marginLeft: theme.spacing(1),
   marginRight: theme.spacing(1),
-  fontSize: "16px",
+  fontSize: '16px',
 }));
 
-const ButtonContainer = styled("div")(({ theme }) => ({
+const ButtonContainer = styled('div')(({ theme }) => ({
   marginTop: theme.spacing(1),
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "space-between",
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
 }));
 
-const Button = styled("button")(() => ({
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  background: "none",
-  border: "none",
-  cursor: "pointer",
-  outline: "none",
+const Button = styled('button')(() => ({
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  outline: 'none',
 }));
 
-const Trash = styled("button")(() => ({
-  background: "none",
-  border: "none",
-  cursor: "pointer",
-  outline: "none",
+const Trash = styled('button')(() => ({
+  background: 'none',
+  border: 'none',
+  cursor: 'pointer',
+  outline: 'none',
 }));
 
 export const TodoItem = (props: Props) => {
   const filteredTodos = props.todos.filter((todo) => {
     switch (props.filter) {
-      case "all":
+      case 'all':
         return !todo.removed;
-      case "checked":
+      case 'checked':
         return todo.checked && !todo.removed;
-      case "unchecked":
+      case 'unchecked':
         return !todo.checked && !todo.removed;
-      case "removed":
+      case 'removed':
         return todo.removed;
       default:
         return todo;
@@ -88,19 +88,19 @@ export const TodoItem = (props: Props) => {
                 fullWidth
                 variant="standard"
                 value={todo.value}
-                onChange={(e) => props.onTodo(todo, "value", e.target.value)}
+                onChange={(e) => props.onTodo(todo, 'value', e.target.value)}
                 disabled={todo.checked || todo.removed}
               />
             </Form>
             <ButtonContainer>
               <Button
-                onClick={() => props.onTodo(todo, "checked", !todo.checked)}
-                disabled={props.filter === "removed"}
+                onClick={() => props.onTodo(todo, 'checked', !todo.checked)}
+                disabled={props.filter === 'removed'}
               >
                 {todo.checked ? (
                   <Icon
                     style={{
-                      color: props.filter !== "removed" ? pink.A200 : grey[500],
+                      color: props.filter !== 'removed' ? pink.A200 : grey[500],
                     }}
                   >
                     check_circle_outline
@@ -109,7 +109,7 @@ export const TodoItem = (props: Props) => {
                   <Icon
                     style={{
                       color:
-                        props.filter !== "removed" ? lightBlue[500] : grey[500],
+                        props.filter !== 'removed' ? lightBlue[500] : grey[500],
                     }}
                   >
                     radio_button_unchecked
@@ -117,9 +117,9 @@ export const TodoItem = (props: Props) => {
                 )}
                 <Typography
                   style={{
-                    userSelect: "none",
+                    userSelect: 'none',
                     color:
-                      todo.checked && props.filter !== "removed"
+                      todo.checked && props.filter !== 'removed'
                         ? pink.A200
                         : grey[500],
                   }}
@@ -128,7 +128,7 @@ export const TodoItem = (props: Props) => {
                 </Typography>
               </Button>
               <Trash
-                onClick={() => props.onTodo(todo, "removed", !todo.removed)}
+                onClick={() => props.onTodo(todo, 'removed', !todo.removed)}
               >
                 {todo.removed ? (
                   <Icon style={{ color: lightBlue[500] }}>undo</Icon>

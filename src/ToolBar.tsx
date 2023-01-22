@@ -1,9 +1,9 @@
-import Box from "@mui/material/Box";
-import Icon from "@mui/material/Icon";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
+import Box from '@mui/material/Box';
+import Icon from '@mui/material/Icon';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import IconButton from '@mui/material/IconButton';
 
 type Props = {
   filter: Filter;
@@ -13,16 +13,16 @@ type Props = {
 export const ToolBar = (props: Props) => {
   const translator = (arg: Filter) => {
     switch (arg) {
-      case "all":
-        return "すべてのタスク";
-      case "unchecked":
-        return "現在のタスク";
-      case "checked":
-        return "完了したタスク";
-      case "removed":
-        return "ごみ箱";
+      case 'all':
+        return 'すべてのタスク';
+      case 'unchecked':
+        return '現在のタスク';
+      case 'checked':
+        return '完了したタスク';
+      case 'removed':
+        return 'ごみ箱';
       default:
-        return "TODO";
+        return 'TODO';
     }
   };
   return (
