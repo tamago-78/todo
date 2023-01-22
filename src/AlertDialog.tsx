@@ -1,11 +1,11 @@
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogTitle from '@mui/material/DialogTitle';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 
-import { styled } from "@mui/material/styles";
+import { styled } from '@mui/material/styles';
 
 type Props = {
   alertOpen: boolean;
@@ -14,7 +14,7 @@ type Props = {
 };
 
 const Alert = styled(Dialog)(() => ({
-  fontFamily: "-apple-system, BlinkMacSystemFont, Roboto, sans-serif",
+  fontFamily: '-apple-system, BlinkMacSystemFont, Roboto, sans-serif',
 }));
 
 export const AlertDialog = (props: Props) => {

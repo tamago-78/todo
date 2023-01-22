@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -27,18 +28,18 @@ export default defineConfig({
          * minimal-ui: 最小限のブラウザ UI は残る
          * browser: 通常のブラウザ
          */
-        display: "standalone",
+        display: 'standalone',
         /**
          * アプリの向き:
          * portrait: 縦向き
          * landscape: 横向き
          * any: 向きを強制しない
          */
-        orientation: "portrait",
+        orientation: 'portrait',
         // 既定のテーマカラー
         theme_color: '#3f51b2',
         // スタイルシートが読み込まれる前に表示するアプリページの背景色
-        background_color: "#efeff4",
+        background_color: '#efeff4',
         /**
          * favicon やアプリアイコンの配列:
          * 最低でも 192x192ビクセルと512x512ビクセルの 2 つのアプリアイコンが必要
@@ -65,4 +66,17 @@ export default defineConfig({
       },
     }),
   ],
+  test: {
+    // Vitest のモジュールをインポートなしで使う
+    globals: true,
+    // テスト環境
+    environment: 'jsdom',
+    // coverage-c8 の設定
+    coverage: {
+      // カバレッジ収集を有効に
+      enabled: true,
+      // テキスト（コンソール上）でのみ報告
+      reporter: ['text'],
+    },
+  },
 });
