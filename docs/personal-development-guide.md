@@ -96,3 +96,65 @@ Webアプリの公開先は無料枠で十分です。
 - GitHub Pagesで公開して友人に使ってもらう
 
 まずは1つ選んでブランチを切り、小さく作って動かすところから始めましょう。
+
+---
+
+# モバイルアプリ編（iOS / Android 両対応）
+
+## 結論：Expo（React Native）がおすすめ
+
+理由はシンプルで、**このリポジトリで使っているReactとTypeScriptの知識がそのまま使える**からです。1つのコードでiOSとAndroidの両方のアプリが作れます。
+
+| 選択肢 | 言語 | 向いている人 |
+|---|---|---|
+| **Expo (React Native)** | TypeScript / React | React経験者（＝今のあなた） |
+| Flutter | Dart（新しく学ぶ） | ゼロから学び直してもいい人 |
+| Capacitor | 今のWebアプリをそのまま包む | 既存Webアプリを最速でアプリ化したい人 |
+
+補足：今のTodoアプリはPWA対応済みなので、実は「スマホのホーム画面に追加」すれば今でもアプリ風に使えます。ストア配布が目的でなければ、まずこれで済むこともあります。
+
+## Expoの始め方
+
+Macは不要です。手元のPCと、実機のスマホ（iPhoneでもAndroidでも）があれば始められます。
+
+```bash
+npx create-expo-app@latest my-app --template blank-typescript
+cd my-app
+npx expo start
+```
+
+1. スマホに **Expo Go** アプリ（App Store / Google Play で無料）を入れる
+2. `npx expo start` で表示されるQRコードをスマホで読み取る
+3. **自分のスマホ上でアプリが即座に動く**。コードを保存すると自動で反映される
+
+この体験の速さがExpo最大の魅力で、Xcode や Android Studio のセットアップなしで開発を始められます。
+
+## Webとの違いで最初に覚えること
+
+- `<div>` → `<View>`、`<p>`や`<span>` → `<Text>`、`<button>` → `<Pressable>`
+- CSSファイルの代わりに `StyleSheet.create({...})`（書き方はほぼCSS）
+- 画面遷移は **Expo Router**（ファイルベースでNext.jsに似ている）
+- データ保存は `localforage` の代わりに **AsyncStorage**
+
+Todoアプリをもう一度Expoで作り直すのが、最高の練習課題になります。ロジック（`isTodos.ts` のような部分）はほぼコピーで動きます。
+
+## 配布方法（段階別）
+
+| 段階 | 方法 | 費用 |
+|---|---|---|
+| 自分で使う | Expo Go で起動、または development build | 無料 |
+| 友人に試してもらう | **EAS Build**（Expoのクラウドビルド）+ Android は APK 直接配布、iOS は TestFlight | 無料枠あり |
+| ストアで公開 | Google Play：初回 $25（買い切り）/ App Store：**Apple Developer Program 年間 $99** | 左記 |
+
+- iOSのビルドは本来Macが必要ですが、**EAS Buildを使えばクラウド上でビルドされるのでMacなしでもストア提出まで可能**です。
+- ストア公開は審査があります（特にAppleは1〜3日程度）。最初は「自分とTestFlightの友人まで」で十分です。
+
+## おすすめの進め方
+
+1. `create-expo-app` で空プロジェクトを作り、Expo Goで動かしてみる（30分）
+2. このTodoアプリをExpoで再実装する（数日〜1週間）
+3. AsyncStorageで保存できるようにして、自分のスマホで毎日使う
+4. 使っていて欲しくなった機能（通知、ウィジェットなど）を足す
+5. TestFlight / APKで友人に配ってみる
+
+Webの時と同じく「小さく作って、まず自分で使う」が鉄則です。
