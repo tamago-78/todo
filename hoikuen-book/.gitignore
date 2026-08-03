@@ -1,0 +1,5 @@
+# 連絡帳の中身（子どもの写真・日記）は絶対にコミットしない
+data/
+node_modules/
+package.json
+package-lock.json
