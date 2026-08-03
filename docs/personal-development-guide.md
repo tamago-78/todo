@@ -144,7 +144,7 @@ Todoアプリをもう一度Expoで作り直すのが、最高の練習課題に
 |---|---|---|
 | 自分で使う | Expo Go で起動、または development build | 無料 |
 | 友人に試してもらう | **EAS Build**（Expoのクラウドビルド）+ Android は APK 直接配布、iOS は TestFlight | 無料枠あり |
-| ストアで公開 | Google Play：初回 $25（買い切り）/ App Store：**Apple Developer Program 年間 $99** | 左記 |
+| ストアで公開 | Google Play：初回 $25（買い切り、約4,000円）/ App Store：**Apple Developer Program 年間 $99（日本からは年間12,980円で請求）** | 左記 |
 
 - iOSのビルドは本来Macが必要ですが、**EAS Buildを使えばクラウド上でビルドされるのでMacなしでもストア提出まで可能**です。
 - ストア公開は審査があります（特にAppleは1〜3日程度）。最初は「自分とTestFlightの友人まで」で十分です。
